@@ -1,0 +1,20 @@
+---
+
+# Install pre-requisits for ansible managed node
+ansiblenode_install_prereqs: false
+
+# ansible user
+ansiblenode_user_name: ansible
+
+# Ansible group
+ansiblenode_group_name: ansible
+
+# Ansible users home directory
+ansiblenode_user_home: /home/{{ ansiblenode_user_name }}
+
+# Set-up sudo for ansible user
+ansiblenode_sudo: true
+ansiblenode_sudo_passwordless: true
+
+# List of SSH public keys to allow access
+ansiblenode_pubkeys: []

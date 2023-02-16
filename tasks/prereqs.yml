@@ -1,0 +1,13 @@
+---
+
+- name: Setup epel
+  ansible.builtin.include_role:
+    name: deitkrachten.epel
+  when: ansible_os_family == 'RedHat' and ansible_distribution != 'Fedora'
+
+- name: Setup python
+  ansible.builtin.include_role:
+    name: deitkrachten.python
+  vars:
+    python_package_install_optional: false
+    python_virtualenvs: []

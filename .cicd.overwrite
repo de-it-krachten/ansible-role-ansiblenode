@@ -1,0 +1,32 @@
+---
+
+# Generic
+generic:
+  role: ansible-role-ansiblenode
+  role_short: ansiblenode
+  role_description: |
+    Role for setting up system as Ansible managed node
+  collections: []
+
+# Dependencies
+dependencies:
+  roles:
+    - deitkrachten.epel
+    - deitkrachten.python
+  collections: []
+
+# Supported platforms
+platforms:
+  centos7:
+    ci: false
+    supported: true
+
+# Molecule
+molecule:
+  requirements:
+    roles_extra:
+      - deitkrachten.epel
+      - deitkrachten.python
+  converge:
+    vars:
+      ansiblenode_install_prereqs: true
