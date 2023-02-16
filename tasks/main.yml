@@ -1,11 +1,8 @@
 ---
 
-- name: Setup python3
-  ansible.builtin.include_role:
-    name: deitkrachten.python
-  vars:
-    python_package_install_optional: false
-    python_virtualenvs: []
+- name: Setup prerequisits
+  ansible.builtin.include_tasks: prereqs.yml
+  when: ansiblenode_install_prereqs | bool
 
 - name: Ensure ansible group exists
   ansible.builtin.group:
@@ -30,15 +27,16 @@
 
 - name: Activate sudo
   ansible.builtin.template:
-    src: "{{ 'sudo-nopasswd.j2' if ansiblenode_user_passwordless | bool else 'sudo-passwd.j2' }}"
+    src: "{{ 'sudo-nopasswd.j2' if ansiblenode_sudo_passwordless | bool else 'sudo-passwd.j2' }}"
     dest: /etc/sudoers.d/{{ ansiblenode_user_name }}
     mode: "0440"
+  when: ansiblenode_sudo | bool
 
 - name: Setup pubkey authentication for {{ ansiblenode_user_name }}
   ansible.posix.authorized_key:
     user: "{{ ansiblenode_user_name }}"
     state: present
     key: "{{ ansiblenode_pubkey }}"
-  loop: "{{ ansiblenode_pubkeys | default([]) }}"
+  loop: "{{ ansiblenode_pubkeys }}"
   loop_control:
     loop_var: ansiblenode_pubkey

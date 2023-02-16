@@ -124,19 +124,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: centos7_2.9
-            runs_on: ubuntu-20.04
-            distro: centos7
-            playbook: converge.yml
-            ansible: "ansible==2.9.27"
-            ansible_lint: "ansible-lint==5.4.0"
-          - name: centos7_2.13
-            runs_on: ubuntu-20.04
-            distro: centos7
-            playbook: converge.yml
-            ansible: "ansible-core>2.13,<2.14"
-            ansible_lint: "ansible-lint>6,<7"
-
           - name: rockylinux8_2.9
             runs_on: ubuntu-latest
             distro: rockylinux8

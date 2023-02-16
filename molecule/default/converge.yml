@@ -3,6 +3,8 @@
 - name: Converge
   hosts: all
   become: "yes"
+  vars:
+    ansiblenode_install_prereqs: True
   roles:
     - deitkrachten.showinfo
   tasks:

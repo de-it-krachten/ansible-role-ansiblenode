@@ -11,10 +11,22 @@ generic:
 # Dependencies
 dependencies:
   roles:
+    - deitkrachten.epel
     - deitkrachten.python
   collections: []
 
+# Supported platforms
+platforms:
+  centos7:
+    ci: false
+    supported: true
+
+# Molecule
 molecule:
   requirements:
     roles_extra:
+      - deitkrachten.epel
       - deitkrachten.python
+  converge:
+    vars:
+      ansiblenode_install_prereqs: true
