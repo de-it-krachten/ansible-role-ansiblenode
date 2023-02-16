@@ -1,0 +1,20 @@
+---
+
+# Generic
+generic:
+  role: ansible-role-ansiblenode
+  role_short: ansiblenode
+  role_description: |
+    Role for setting up system as Ansible managed node
+  collections: []
+
+# Dependencies
+dependencies:
+  roles:
+    - deitkrachten.python
+  collections: []
+
+molecule:
+  requirements:
+    roles_extra:
+      - deitkrachten.python
