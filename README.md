@@ -75,8 +75,6 @@ ansiblenode_pubkeys: []
   become: "yes"
   vars:
     ansiblenode_install_prereqs: True
-  roles:
-    - deitkrachten.showinfo
   tasks:
     - name: Include role 'ansiblenode'
       ansible.builtin.include_role:
