@@ -14,7 +14,7 @@
     name: "{{ ansiblenode_user_name }}"
     uid: "{{ ansiblenode_user_id | default(omit) }}"
     group: "{{ ansiblenode_group_name | default(ansiblenode_user_name) }}"
-    shell: /bin/bash
+    shell: "{{ ansiblenode_shell }}"
     groups: "{{ ansiblenode_groups | default(omit) }}"
 
 - name: Change home directory
