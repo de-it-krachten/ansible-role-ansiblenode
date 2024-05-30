@@ -3,6 +3,12 @@
 # Install pre-requisits for ansible managed node
 ansiblenode_install_prereqs: false
 
+# User registry where users resides (local or external)
+ansiblenode_local_user: true
+
+# Service to query (for external users)
+ansiblenode_service: sss
+
 # ansible user
 ansiblenode_user_name: ansible
 
