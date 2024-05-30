@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.1.0...v1.2.0) (2024-05-30)
+
+
+### Features
+
+* Add support for external/AD user ([20f9683](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/20f96834dd765d262ce0f1131cc8a209d58266b5))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.0.0...v1.1.0) (2023-08-14)
 
 
