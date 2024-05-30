@@ -11,6 +11,7 @@ generic:
 # Dependencies
 dependencies:
   roles:
+    - deitkrachten.facts
     - deitkrachten.epel
     - deitkrachten.python
   collections: []
@@ -25,6 +26,7 @@ platforms:
 molecule:
   requirements:
     roles_extra:
+      - deitkrachten.facts
       - deitkrachten.epel
       - deitkrachten.python
   converge:

@@ -10,11 +10,12 @@ Role for setting up system as Ansible managed node
 ## Dependencies
 
 #### Roles
+- deitkrachten.facts
 - deitkrachten.epel
 - deitkrachten.python
 
 #### Collections
-- community.general
+- ansible.posix
 
 ## Platforms
 
@@ -32,13 +33,13 @@ Supported platforms
 - AlmaLinux 9
 - SUSE Linux Enterprise 15<sup>1</sup>
 - openSUSE Leap 15
-- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 37
-- Fedora 38
+- Ubuntu 24.04 LTS
+- Fedora 39
+- Fedora 40
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -48,6 +49,12 @@ Note:
 <pre><code>
 # Install pre-requisits for ansible managed node
 ansiblenode_install_prereqs: false
+
+# User registry where users resides (local or external)
+ansiblenode_local_user: true
+
+# Service to query (for external users)
+ansiblenode_service: sss
 
 # ansible user
 ansiblenode_user_name: ansible
@@ -77,9 +84,9 @@ ansiblenode_pubkeys: []
 <pre><code>
 - name: sample playbook for role 'ansiblenode'
   hosts: all
-  become: "yes"
+  become: 'yes'
   vars:
-    ansiblenode_install_prereqs: True
+    ansiblenode_install_prereqs: true
   tasks:
     - name: Include role 'ansiblenode'
       ansible.builtin.include_role:
