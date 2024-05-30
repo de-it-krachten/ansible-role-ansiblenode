@@ -1,9 +1,16 @@
 ---
 
-- name: Setup epel
-  ansible.builtin.include_role:
-    name: deitkrachten.epel
+- name: Setup EPEL
   when: ansible_os_family == 'RedHat' and ansible_distribution != 'Fedora'
+  block:
+
+    - name: Set facts
+      ansible.builtin.include_role:
+        name: deitkrachten.facts
+
+    - name: Setup EPEL
+      ansible.builtin.include_role:
+        name: deitkrachten.epel
 
 - name: Setup python
   ansible.builtin.include_role:

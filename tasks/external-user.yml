@@ -1,0 +1,40 @@
+---
+
+- name: Check if the user exists in the local database
+  ansible.builtin.command:
+    getent -s files passwd {{ ansiblenode_user_name }}
+  changed_when: false
+  failed_when: false
+  register: __ad_user
+
+- name: Exit if it does
+  ansible.builtin.fail:
+    msg: "External user {{ ansiblenode_user_name }} exists locally!"
+  when: __ad_user.stdout | length > 0
+
+- name: Check that the exernal user exists
+  ansible.builtin.command:
+    getent -s {{ ansiblenode_service }} passwd {{ ansiblenode_user_name }}
+  changed_when: false
+  failed_when: false
+  register: __ad_user
+
+- name: Fail when external user is not present
+  ansible.builtin.fail:
+    msg: "External user {{ ansiblenode_user_name }} not found!"
+  when: __ad_user.stdout | length == 0
+
+- name: Get external users primary group
+  ansible.builtin.shell: |
+    set -o pipefail
+    gid=$(getent -s {{ ansiblenode_service }} passwd {{ ansiblenode_user_name }} | awk -F: '{print $4}')
+    gname=$(getent -s {{ ansiblenode_service }} group $gid | awk -F: '{print $1}')
+    echo $gname
+  args:
+    executable: /bin/bash
+  changed_when: false
+  register: gname
+
+- name: Get primary group as fact
+  ansible.builtin.set_fact:
+    ansiblenode_group_name: "{{ gname.stdout }}"

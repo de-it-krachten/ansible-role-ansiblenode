@@ -4,39 +4,9 @@
   ansible.builtin.include_tasks: prereqs.yml
   when: ansiblenode_install_prereqs | bool
 
-- name: Ensure ansible group exists
-  ansible.builtin.group:
-    name: "{{ ansiblenode_group_name | default(ansiblenode_user_name) }}"
-    gid: "{{ ansiblenode_group_id | default(omit) }}"
+- name: Setup ansible user
+  ansible.builtin.include_tasks:
+    file: "{{ 'local-user.yml' if ansiblenode_local_user | bool else 'external-user.yml' }}"
 
-- name: Ensure ansible user exists
-  ansible.builtin.user:
-    name: "{{ ansiblenode_user_name }}"
-    uid: "{{ ansiblenode_user_id | default(omit) }}"
-    group: "{{ ansiblenode_group_name | default(ansiblenode_user_name) }}"
-    shell: "{{ ansiblenode_shell }}"
-    groups: "{{ ansiblenode_groups | default(omit) }}"
-
-- name: Change home directory
-  ansible.builtin.file:
-    path: "{{ ansiblenode_user_home }}"
-    state: directory
-    owner: "{{ ansiblenode_user_name }}"
-    group: "{{ ansiblenode_group_name }}"
-    recurse: yes
-
-- name: Activate sudo
-  ansible.builtin.template:
-    src: "{{ 'sudo-nopasswd.j2' if ansiblenode_sudo_passwordless | bool else 'sudo-passwd.j2' }}"
-    dest: /etc/sudoers.d/{{ ansiblenode_user_name }}
-    mode: "0440"
-  when: ansiblenode_sudo | bool
-
-- name: Setup pubkey authentication for {{ ansiblenode_user_name }}
-  ansible.posix.authorized_key:
-    user: "{{ ansiblenode_user_name }}"
-    state: present
-    key: "{{ ansiblenode_pubkey }}"
-  loop: "{{ ansiblenode_pubkeys }}"
-  loop_control:
-    loop_var: ansiblenode_pubkey
+- name: Setup user
+  ansible.builtin.include_tasks: all-users.yml
