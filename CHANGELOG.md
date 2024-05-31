@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.2.0...v1.3.0) (2024-05-31)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([d190571](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/d1905719ecc4083fd3faf70a46eb4ac5809d8b32))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.1.0...v1.2.0) (2024-05-30)
 
 
