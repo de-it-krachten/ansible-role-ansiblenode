@@ -1,2 +1,9 @@
 Defaults:{{ ansiblenode_user_name }} !requiretty
+
+# Allow all commands w/ password authentication
 {{ ansiblenode_user_name }} ALL=(ALL) ALL
+
+# Allow specific commands w/out password authentication
+{% for command in ansiblenode_allow_commands | default([]) %}
+{{ ansiblenode_user_name }} ALL = NOPASSWD: {{ command }}
+{% endfor %}
