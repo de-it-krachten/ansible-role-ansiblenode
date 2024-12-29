@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.4.0...v1.5.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([b4c9643](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/b4c9643086fc738b3205603b9021125595715adf))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.3.0...v1.4.0) (2024-07-13)
 
 
