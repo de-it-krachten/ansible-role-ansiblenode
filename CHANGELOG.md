@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.5.0...v1.6.0) (2025-08-06)
+
+
+### Features
+
+* Add support for AlmaLinux 10 ([5d6aa35](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/5d6aa350b96db408dc0b9d77143f546d1fbad187))
+* Add support for Debian 13 (Trixie) ([d9b5025](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/d9b5025a0cbe2f03930fef0f0f26e005c7223bce))
+* Add support for OracleLinux 10 ([257b119](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/257b119e65818c14f1bb51a642a1b645fd3e9160))
+* Add support for Red Hat Enterprise Linux 10 ([eb5fffb](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/eb5fffb8d62d05849207525ad13b33497edc83c1))
+* Add support for RockyLinux 10 ([62dc4d5](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/62dc4d50505cbaa2818bc5fdac593f688107b719))
+* Update supported platforms & CI ([ec4e658](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/ec4e658a1f0a49bb3061fb7b1341c869541cfe86))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.4.0...v1.5.0) (2024-12-29)
 
 
