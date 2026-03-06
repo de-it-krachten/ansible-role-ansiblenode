@@ -4,6 +4,7 @@
   hosts: all
   become: "yes"
   vars:
+    molecule_driver: "{{ lookup('env', 'MOLECULE_DRIVER_NAME') }}"
     ansiblenode_install_prereqs: True
   tasks:
     - name: Include role 'ansible-role-ansiblenode'
