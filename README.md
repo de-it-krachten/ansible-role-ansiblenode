@@ -15,7 +15,7 @@ Role for setting up system as Ansible managed node
 - deitkrachten.python
 
 #### Collections
-- {'name': 'ansible.posix'}
+- ansible.posix
 
 ## Platforms
 
