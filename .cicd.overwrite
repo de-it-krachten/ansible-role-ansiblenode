@@ -8,6 +8,15 @@ generic:
     Role for setting up system as Ansible managed node
   collections: []
 
+# Supported platforms
+platforms:
+  centos7:
+    supported: true
+    ci: false
+  ubuntu2004:
+    supported: true
+    ci: true
+
 # Dependencies
 dependencies:
   roles:
@@ -15,12 +24,6 @@ dependencies:
     - deitkrachten.epel
     - deitkrachten.python
   collections: []
-
-# Supported platforms
-platforms:
-  centos7:
-    ci: false
-    supported: true
 
 # Molecule
 molecule:

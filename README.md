@@ -10,8 +10,8 @@ Role for setting up system as Ansible managed node
 ## Dependencies
 
 #### Roles
-- deitkrachten.facts
 - deitkrachten.epel
+- deitkrachten.facts
 - deitkrachten.python
 
 #### Collections
@@ -34,19 +34,18 @@ Supported platforms
 - AlmaLinux 8
 - AlmaLinux 9
 - AlmaLinux 10
-- SUSE Linux Enterprise 15<sup>1</sup>
-- openSUSE Leap 15
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Debian 13 (Trixie)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
-- Fedora 41
 - Fedora 42
+- Fedora 43
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
+
 
 ## Role Variables
 ### defaults/main.yml
@@ -90,6 +89,7 @@ ansiblenode_pubkeys: []
   hosts: all
   become: 'yes'
   vars:
+    molecule_driver: '{{ lookup(''env'', ''MOLECULE_DRIVER_NAME'') }}'
     ansiblenode_install_prereqs: true
   tasks:
     - name: Include role 'ansiblenode'
