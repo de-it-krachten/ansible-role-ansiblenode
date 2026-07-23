@@ -30,8 +30,11 @@ molecule:
   requirements:
     roles_extra:
       - deitkrachten.facts
-      - deitkrachten.epel
+      # - deitkrachten.epel
       - deitkrachten.python
+  prepare:
+    vars:
+      activate_epel: true
   converge:
     vars:
       ansiblenode_install_prereqs: true
