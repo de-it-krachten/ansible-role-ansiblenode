@@ -1,3 +1,13 @@
+# [1.8.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.7.0...v1.8.0) (2026-07-26)
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([fbe09ef](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/fbe09ef896de86ee1a713eb77430071da26db60c))
+* Added support for Fedora 44 ([eb155d5](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/eb155d59386af1720a891383d6611fbdf8a0a233))
+* Added support for Ubuntu 26.04 LTS ([8f31a41](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/8f31a4160c2859d8e0f88b44c3c32f61744a33df))
+* Drop support for Fedora 42 ([3c9e053](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/3c9e0538ee92f686ea33fdbe5cdabf28dd9def3c))
+
 # [1.7.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.6.0...v1.7.0) (2026-03-15)
 
 
