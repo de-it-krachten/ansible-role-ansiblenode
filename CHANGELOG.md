@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.8.0...v1.9.0) (2026-10-13)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([49fa289](https://github.com/de-it-krachten/ansible-role-ansiblenode/commit/49fa2896c8e104b9e577d15aa9ef3ebc75d16caa))
+
 # [1.8.0](https://github.com/de-it-krachten/ansible-role-ansiblenode/compare/v1.7.0...v1.8.0) (2026-07-26)
 
 
